@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "name": "Oraimo Watch 5 Lite Smart Watch",
+      "image": "https://www.startech.com.bd/image/cache/catalog/smart-watch/oraimo/watch-5-lite/watch-5-lite-official-228x228.webp",
+      "description": "2.01\" TFT HD 240x280p Display, HD Voice in Calls, AI-Generated Watch Faces, IP68 Dust & Water Resistance, 105+ Sports Modes, 7 Days Battery Life",
+      "credits": 37
+    },
+    {
+      "name": "T-Wolf T20 Wired RGB Gaming Keyboard",
+      "image": "https://www.startech.com.bd/image/cache/catalog/keyboard/t-wolf/t20/t20-01-500x500.webp",
+      "description": "Model: T20, Number Of Keys: 104, Backlit RGB, Switch Type: Membrane, Multi Keys: Anti-ghosting",
+      "credits": 11
+    },
+    {
+      "name": "Hoco ESD15 Bluetooth Wireless Headphone",
+      "image": "https://www.startech.com.bd/image/cache/catalog/headphone/hoco/esd15/esd15-black-01-500x500.webp",
+      "description": "Model: ESD15, Bluetooth: 5.3 Chip: JLAC6925F, Battery capacity: 400mah, Charging about 2 hours, Talk/music: 12 hours",
+      "credits": 34
+    },
+    {
+      "name": "Fantech PAC1 Portable Air Conditioner",
+      "image": "https://www.startech.com.bd/image/cache/catalog/appliance/charger-fan/fantech/pac1/pac1-01-500x500.webp",
+      "description": "Model: PAC1, Ultra-High Speed for Strong Airflow, Max RPM: 10000 ± 10% RPM, Battery Life: Up to 2.5 Hours, 3 adjustable speeds",
+      "credits": 11
+    },
+    {
+      "name": "Fantech Sven MP44 Gaming Mousepad",
+      "image": "https://www.startech.com.bd/image/cache/catalog/accessories/mousepad/sven-mp44-500x500.jpg",
+      "description": "Model: Fantech Sven MP44, Quick and responsiveness to your mouse, Anti- slip Rubber Base, Built for maximum precision, Size: 44cm x 35cm x 4mm",
+      "credits": 11
+    },
+    {
+      "name": "Hiksemi Pully HS USB M210S Pendrive",
+      "image": "https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp",
+      "description": "MPN: HS-USB-M210S-64G-U3, Model: Pully HS-USB-M210S, Capacity: 64GB, Interface: USB 3.2, Performance: Up to 120 MB/s read,45MB/s Write, Connector Type: USB Type-A",
+      "credits": 13
+    },
+    {
+      "name": "Transcend TS-RDF5R USB 3.1 Card Reader",
+      "image": "https://www.startech.com.bd/image/cache/catalog/card-reader/transcend/ts-rdf5r/ts-rdf5r-01-500x500.webp",
+      "description": "Model: TS-RDF5R, Connection Interface: USB 3.1 Gen 1, Card Reader Slot: SD, microSD, Transfer Rate: 5Gbps, LED Indicator for Card Insertion, Data Transfer Activity",
+      "credits": 18
+    },
+    {
+      "name": "14 inch Keyboard for Laptop & Notebook",
+      "image": "https://www.startech.com.bd/image/cache/catalog/laptop-accessories/keyboard/keyboard-01-500x500.jpg",
+      "description": "3 months warranty, A Grade LAPTOP & Notebook KEYBOARD for All Brands- HP , Dell , Asus , Acer , Toshiba , Lenovo , Fujitsu , Samsung",
+      "credits": 30
+    },
+    {
+      "name": "XTRA N25 In-Ear Stereo Wireless Neckband",
+      "image": "https://www.startech.com.bd/image/cache/catalog/neckband/xtra/n25/n25-01-500x500.webp",
+      "description": "Model: N25, Input Interface: Type-C, Dynamic Driver Size: 10mm, Bluetooth Version: 5.2, Battery: 90mAh, Playtime Upto 8hrs",
+      "credits": 11
+    },
+    {
+      "name": "Awei T71 In-Ear Wired Earbuds",
+      "image": "https://www.startech.com.bd/image/cache/catalog/earbuds/awei/t71/t71-001-500x500.webp",
+      "description": "Model: T71, Driver: 13mm, Battery Capacity: 180mAh, Play Time: Up to 6H",
+      "credits": 17
+    },
+    {
+      "name": "Havit MS1034 RGB Backlit Programmable Gaming Mouse",
+      "image": "https://www.startech.com.bd/image/cache/catalog/mouse/havit/ms1034/ms1034-01-500x500.webp",
+      "description": "Model: MS1034, USB Connector, Number of key: 7, 4800 DPI Via Software, RGB Backlit",
+      "credits": 19
+    },
+    {
+      "name": "Smart Watch P81",
+      "image": "https://www.startech.com.bd/image/cache/catalog/smart-watch/colmi/p81/p81-black-official-500x500.webp",
+      "description": "Model: P81 1.9 inch HD Display, 100+ Sports Modes, 300mAh battery Capacity, Waterproof level: IP68, 6 months warranty",
+      "credits": 29
+    },
+    {
+      "name": "Awei P20K 10000mah Power Bank",
+      "image": "https://www.startech.com.bd/image/cache/catalog/power-bank/awei/p20k/p20k-01-500x500.webp",
+      "description": "Model: P20K, Battery Capacity: 10000mAh, Input: Micro USB 5V/2A, Type-C 5V/2A, Output: USB1 5V/2.1A, USB2 5V/2.1A, Sleek Design, Durable Build, LED Indicator",
+      "credits": 18
+    },
+    {
+      "name": "M101 Max GPS Drone",
+      "image": "https://www.startech.com.bd/image/cache/catalog/drones/toy-drone/m101-max/m101-max-500x500.webp",
+      "description": "Model: M101 Max, Battery: 8000mAh, Remote Control Range: 1000 meters, Flight Time: 24 minutes, Dual GPS Module",
+      "credits": 280
+    },
+    {
+      "name": "Cheerlux C8 1800 Lumens Mini LCD Projector",
+      "image": "https://www.startech.com.bd/image/cache/catalog/projector/cheerlux/c8-mini/cheerlux-c8-01-500x500.jpg",
+      "description": "Model: C8, Multiple interfaces for multiple devices, Built-in TV Card, 2000:1 contrast ratio, 1800 lumens brightness, 50000 Hours Lamp Life",
+      "credits": 170
+    }
+  ]
+}
