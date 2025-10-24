@@ -1,415 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Redeem Page</title>
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f6f9d1;
-  }
-
-  .menu-bar {
-    background-color: #d3d3d3;
-    padding: 10px 15px;
-    font-weight: bold;
-    font-size: 18px;
-  }
-
-  .container {
-    max-width: 900px;
-    margin: 30px auto;
-    background-color: #f6f9d1;
-    padding: 0 30px;
-  }
-
-  h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 40px;
-  }
-
-  .product {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
-    border-bottom: 1px solid #000;
-  }
-
-  .product img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-right: 20px;
-  }
-
-  .product-info {
-    flex: 1;
-  }
-
-  .product-name {
-    font-size: 20px;
-    margin-bottom: 5px;
-  }
-
-  .product-desc {
-    font-size: 14px;
-    color: #333;
-    max-width: 500px;
-  }
-
-  .credits {
-    font-weight: bold;
-    margin-right: 20px;
-    white-space: nowrap;
-  }
-
-  .redeem-btn {
-    background-color: #5ec28a;
-    color: #000;
-    border: none;
-    padding: 15px 25px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-  .redeem-btn:hover {
-    background-color: #4caf7a;
-  }
-
-  /* Popup styles */
-  .popup {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    align-items: center;
-    justify-content: center;
-  }
-
-  .popup-content {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-  }
-
-  .popup-content h2 {
-    margin-top: 0;
-  }
-
-  .close-btn {
-    margin-top: 20px;
-    background-color: #5ec28a;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-
-  .click-more {
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<!-- <div class="menu-bar">MENU BAR</div> -->
 
 <div class="container">
   <h1>CHOOSE AN ITEM TO REDEEM WITH CREDITS</h1>
 
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/smart-watch/oraimo/watch-5-lite/watch-5-lite-official-228x228.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Oraimo Watch 5 Lite Smart Watch</div>
-      <div class="product-desc">
-        2.01" TFT HD 240x280p Display, HD Voice in Calls,
+  <div class="search-filter">
+    <input id="searchInput" type="text" placeholder="Search by name or description..." />
+    <select id="sortFilter">
+      <option value="">Sort by</option>
+      <option value="low-high">Credits: Low to High</option>
+      <option value="high-low">Credits: High to Low</option>
+    </select>
+  </div>
+
+  <!-- product list: keep all product .product nodes here -->
+  <div id="productList">
+    <!-- (I included your original product items here exactly as in your page) -->
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/smart-watch/oraimo/watch-5-lite/watch-5-lite-official-228x228.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Oraimo Watch 5 Lite Smart Watch</div>
+        <div class="product-desc">
+          2.01" TFT HD 240x280p Display, HD Voice in Calls,
 AI-Generated Watch Faces,
 IP68 Dust & Water Resistance,
 105+ Sports Modes, 7 Days Battery Life
+        </div>
       </div>
+      <div class="credits">37 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Oraimo Watch 5 Lite Smart Watch','37 credits')">REDEEM NOW</button>
     </div>
-    <div class="credits">37 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Oraimo Watch 5 Lite Smart Watch', '37 credits')">REDEEM NOW</button>
-  </div>
 
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/keyboard/t-wolf/t20/t20-01-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">T-Wolf T20 Wired RGB Gaming Keyboard</div>
-      <div class="product-desc">
-        Model: T20,
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/keyboard/t-wolf/t20/t20-01-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">T-Wolf T20 Wired RGB Gaming Keyboard</div>
+        <div class="product-desc">
+          Model: T20,
 Number Of Keys: 104,
 Backlit RGB,
 Switch Type: Membrane,
 Multi Keys: Anti-ghosting
+        </div>
       </div>
+      <div class="credits">11 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('T-Wolf T20 Wired RGB Gaming Keyboard','11 credits')">REDEEM NOW</button>
     </div>
-    <div class="credits">11 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('T-Wolf T20 Wired RGB Gaming Keyboard', '11 credits')">REDEEM NOW</button>
-  </div>
 
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/smart-watch/colmi/p81/p81-black-official-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Smart Watch P81</div>
-      <div class="product-desc">
-        Model: P81 
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/smart-watch/colmi/p81/p81-black-official-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Smart Watch P81</div>
+        <div class="product-desc">
+          Model: P81 
 1.9 inch HD Display,
 100+ Sports Modes,
 300mAh battery Capacity,
 Waterproof level: IP68,
 6 months warranty
+        </div>
+      </div> 
+      <div class="credits">29 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Smart Watch P81','29 credits')">REDEEM NOW</button>
+    </div>
 
-
-      </div>
-    </div> 
-    <div class="credits">29 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Headphone vmh20', '50 credits')">REDEEM NOW</button>
-  </div>
-
-<div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/headphone/hoco/esd15/esd15-black-01-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Hoco ESD15 Bluetooth Wireless Headphone</div>
-      <div class="product-desc">
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/headphone/hoco/esd15/esd15-black-01-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Hoco ESD15 Bluetooth Wireless Headphone</div>
+        <div class="product-desc">
 Model: ESD15,
 Bluetooth: 5.3 Chip: JLAC6925F,
 Battery capacity: 400mah,
 Charging about 2 hours,
 Talk/music: 12 hours
+        </div>
       </div>
+      <div class="credits">34 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Hoco ESD15 Bluetooth Wireless Headphone','34 credits')">REDEEM NOW</button>
     </div>
-    <div class="credits">34 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Hoco ESD15 Bluetooth Wireless Headphone', '34 credits')">REDEEM NOW</button>
-  </div>
 
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/appliance/charger-fan/fantech/pac1/pac1-01-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Fantech PAC1 Portable Air Conditioner</div>
-      <div class="product-desc">
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/appliance/charger-fan/fantech/pac1/pac1-01-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Fantech PAC1 Portable Air Conditioner</div>
+        <div class="product-desc">
 Model: PAC1,
 Ultra-High Speed for Strong Airflow,
 Max RPM: 10000 ± 10% RPM,
 Battery Life: Up to 2.5 Hours,
 3 adjustable speeds
+        </div>
       </div>
+      <div class="credits">11 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Fantech PAC1 Portable Air Conditioner','11 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">11 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Fantech PAC1 Portable Air Conditioner', '11 credits')">REDEEM NOW</button>
-  </div>
-
-
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/accessories/mousepad/sven-mp44-500x500.jpg" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Fantech Sven MP44 Gaming Mousepad</div>
-      <div class="product-desc">
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/accessories/mousepad/sven-mp44-500x500.jpg" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Fantech Sven MP44 Gaming Mousepad</div>
+        <div class="product-desc">
 Model: Fantech Sven MP44,
 Quick and responsiveness to your mouse,
 Anti- slip Rubber Base,
 Built for maximum precision,
 Size: 44cm x 35cm x 4mm
+        </div>
       </div>
+      <div class="credits">11 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Fantech Sven MP44 Gaming Mousepad','11 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">11 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Fantech Sven MP44 Gaming Mousepad', '11 credits')">REDEEM NOW</button>
-  </div>
-
-
     <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
-      <div class="product-desc">
+      <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
+        <div class="product-desc">
 MPN: HS-USB-M210S-64G-U3,
 Model: Pully HS-USB-M210S,
 Capacity: 64GB,
 Interface: USB 3.2,
 Performance: Up to 120 MB/s read,45MB/s Write,
 Connector Type: USB Type-A,
+        </div>
       </div>
+      <div class="credits">13 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive','13 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">13 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive', '13 credits')">REDEEM NOW</button>
-  </div>
-
-<div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/card-reader/transcend/ts-rdf5r/ts-rdf5r-01-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Transcend TS-RDF5R USB 3.1 Card Reader</div>
-      <div class="product-desc">
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/card-reader/transcend/ts-rdf5r/ts-rdf5r-01-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Transcend TS-RDF5R USB 3.1 Card Reader</div>
+        <div class="product-desc">
 Model: TS-RDF5R,
 Connection Interface: USB 3.1 Gen 1,
 Card Reader Slot: SD, microSD,
 Transfer Rate: 5Gbps,
 LED Indicator for Card Insertion, Data Transfer Activity
+        </div>
       </div>
+      <div class="credits">18 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Transcend TS-RDF5R USB 3.1 Card Reader','18 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">18 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Transcend TS-RDF5R USB 3.1 Card Reader', '18 credits')">REDEEM NOW</button>
-  </div>
-
-
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/laptop-accessories/keyboard/keyboard-01-500x500.jpg" alt="Product">
-    <div class="product-info">
-      <div class="product-name">14 inch Keyboard for Laptop & Notebook</div>
-      <div class="product-desc">
-        3 months warranty,
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/laptop-accessories/keyboard/keyboard-01-500x500.jpg" alt="Product">
+      <div class="product-info">
+        <div class="product-name">14 inch Keyboard for Laptop & Notebook</div>
+        <div class="product-desc">
+3 months warranty,
 A Grade LAPTOP & Notebook KEYBOARD for All Brands- HP , Dell , Asus , Acer , Toshiba , Lenovo , Fujitsu , Samsung
-
-
+        </div>
       </div>
+      <div class="credits">30 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('14 inch Keyboard for Laptop & Notebook','30 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">30 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('14 inch Keyboard for Laptop & Notebook', '30 credits')">REDEEM NOW</button>
-  </div>
-
-
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/neckband/xtra/n25/n25-01-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">XTRA N25 In-Ear Stereo Wireless Neckband</div>
-      <div class="product-desc">
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/neckband/xtra/n25/n25-01-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">XTRA N25 In-Ear Stereo Wireless Neckband</div>
+        <div class="product-desc">
 Model: N25,
 Input Interface: Type-C,
 Dynamic Driver Size: 10mm,
 Bluetooth Version: 5.2,
 Battery: 90mAh, Playtime Upto 8hrs
+        </div>
       </div>
+      <div class="credits">11 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('XTRA N25 In-Ear Stereo Wireless Neckband','11 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">11 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('XTRA N25 In-Ear Stereo Wireless Neckband', '11 credits')">REDEEM NOW</button>
-  </div>
-
-
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/earbuds/awei/t71/t71-001-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Awei T71 In-Ear Wired Earbuds</div>
-      <div class="product-desc">
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/earbuds/awei/t71/t71-001-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Awei T71 In-Ear Wired Earbuds</div>
+        <div class="product-desc">
 Model: T71,
 Driver: 13mm,
 Battery Capacity: 180mAh,
 Play Time: Up to 6H
+        </div>
       </div>
+      <div class="credits">17 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Awei T71 In-Ear Wired Earbuds','17 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">17 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Awei T71 In-Ear Wired Earbuds', '17 credits')">REDEEM NOW</button>
-  </div>
-
-
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/mouse/havit/ms1034/ms1034-01-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Havit MS1034 RGB Backlit Programmable Gaming Mouse</div>
-      <div class="product-desc">
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/mouse/havit/ms1034/ms1034-01-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Havit MS1034 RGB Backlit Programmable Gaming Mouse</div>
+        <div class="product-desc">
 Model: MS1034,
 USB Connector,
 Number of key: 7,
 4800 DPI Via Software,
 RGB Backlit
+        </div>
       </div>
+      <div class="credits">19 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Havit MS1034 RGB Backlit Programmable Gaming Mouse','19 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">19 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Havit MS1034 RGB Backlit Programmable Gaming Mouse', '19 credits')">REDEEM NOW</button>
-  </div>
-
-
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/power-bank/awei/p20k/p20k-01-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Awei P20K 10000mah Power Bank</div>
-      <div class="product-desc">
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/power-bank/awei/p20k/p20k-01-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Awei P20K 10000mah Power Bank</div>
+        <div class="product-desc">
 Model: P20K,
 Battery Capacity: 10000mAh,
 Input: Micro USB 5V/2A, Type-C 5V/2A,
 Output: USB1 5V/2.1A, USB2 5V/2.1A,
 Sleek Design, Durable Build, LED Indicator
+        </div>
       </div>
+      <div class="credits">18 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Awei P20K 10000mah Power Bank','18 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">18 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Awei P20K 10000mah Power Bank', '18 credits')">REDEEM NOW</button>
-  </div>
-
-
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/drones/toy-drone/m101-max/m101-max-500x500.webp" alt="Product">
-    <div class="product-info">
-      <div class="product-name">M101 Max GPS Drone</div>
-      <div class="product-desc">
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/drones/toy-drone/m101-max/m101-max-500x500.webp" alt="Product">
+      <div class="product-info">
+        <div class="product-name">M101 Max GPS Drone</div>
+        <div class="product-desc">
 Model: M101 Max,
 Battery: 8000mAh,
 Remote Control Range: 1000 meters,
 Flight Time: 24 minutes,
 Dual GPS Module
+        </div>
       </div>
+      <div class="credits">280 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('M101 Max GPS Drone','280 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">280 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('M101 Max GPS Drone', '280 credits')">REDEEM NOW</button>
-  </div>
-
-
-  <div class="product">
-    <img src="https://www.startech.com.bd/image/cache/catalog/projector/cheerlux/c8-mini/cheerlux-c8-01-500x500.jpg" alt="Product">
-    <div class="product-info">
-      <div class="product-name">Cheerlux C8 1800 Lumens Mini LCD Projector</div>
-      <div class="product-desc">
+    <div class="product">
+      <img src="https://www.startech.com.bd/image/cache/catalog/projector/cheerlux/c8-mini/cheerlux-c8-01-500x500.jpg" alt="Product">
+      <div class="product-info">
+        <div class="product-name">Cheerlux C8 1800 Lumens Mini LCD Projector</div>
+        <div class="product-desc">
 Model: C8,
 Multiple interfaces for multiple devices,
 Built-in TV Card, 2000:1 contrast ratio,
 1800 lumens brightness,
 50000 Hours Lamp Life
+        </div>
       </div>
+      <div class="credits">170 credits</div>
+      <button class="redeem-btn" onclick="redeemProduct('Cheerlux C8 1800 Lumens Mini LCD Projector','170 credits')">REDEEM NOW</button>
     </div>
 
-    <div class="credits">170 credits</div>
-    <button class="redeem-btn" 
-      onclick="redeemProduct('Cheerlux C8 1800 Lumens Mini LCD Projector', '170 credits')">REDEEM NOW</button>
   </div>
-
-
-
-
-
-
-
 </div>
-
-
 
 <!-- Popup -->
 <div class="popup" id="popup">
@@ -421,38 +273,123 @@ Built-in TV Card, 2000:1 contrast ratio,
 </div>
 
 <script>
-  // Limit description and add "click for more"
-  document.querySelectorAll('.product-desc').forEach(desc => {
-    const fullText = desc.textContent.trim();
-    if (fullText.length > 120) {
-      const shortText = fullText.slice(0, 120) + '... ';
-      const moreLink = document.createElement('span');
-      moreLink.textContent = 'click for more';
-      moreLink.classList.add('click-more');
-      moreLink.onclick = () => openPopup(desc.previousElementSibling.textContent, fullText);
-      desc.textContent = shortText;
-      desc.appendChild(moreLink);
+  // Wait for DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    const productList = document.getElementById('productList');
+    const searchInput = document.getElementById('searchInput');
+    const sortFilter = document.getElementById('sortFilter');
+
+    // Original elements array (live elements will be moved around)
+    const originalItems = Array.from(productList.querySelectorAll('.product'));
+
+    // Helper to read numeric credits from an element
+    function readCredits(el) {
+      const txt = el.querySelector('.credits')?.textContent || '';
+      const n = parseInt(txt.replace(/[^\d]/g, ''), 10);
+      return Number.isNaN(n) ? 0 : n;
     }
+
+    // Helper to read searchable text
+    function readSearchText(el) {
+      const name = el.querySelector('.product-name')?.textContent || '';
+      const desc = el.querySelector('.product-desc')?.textContent || '';
+      return (name + ' ' + desc).toLowerCase();
+    }
+
+    // Render a list of product elements and add/update index column
+    function renderList(list) {
+      productList.innerHTML = '';
+      list.forEach((el, i) => {
+        // ensure index element exists; if not, create
+        let idxEl = el.querySelector('.index');
+        if (!idxEl) {
+          idxEl = document.createElement('div');
+          idxEl.className = 'index';
+          // insert at the very start of the product row
+          el.insertBefore(idxEl, el.firstChild);
+        }
+        idxEl.textContent = (i + 1) + '.';
+        // reset any inline display changes and append
+        el.style.display = 'flex';
+        productList.appendChild(el);
+      });
+
+      // re-attach click-for-more behavior (we trimmed descs below initially)
+      applyDescriptionTruncation();
+    }
+
+    // Apply search + sort and render
+    function applyFilterAndSort() {
+      const q = searchInput.value.trim().toLowerCase();
+      const sortOrder = sortFilter.value; // '', 'low-high', 'high-low'
+
+      // filter
+      let filtered = originalItems.filter(el => {
+        // include element if it contains the search query in name/desc
+        return readSearchText(el).includes(q);
+      });
+
+      // sort if requested
+      if (sortOrder === 'low-high') {
+        filtered.sort((a, b) => readCredits(a) - readCredits(b));
+      } else if (sortOrder === 'high-low') {
+        filtered.sort((a, b) => readCredits(b) - readCredits(a));
+      }
+
+      renderList(filtered);
+    }
+
+    // Hook events
+    searchInput.addEventListener('input', applyFilterAndSort);
+    sortFilter.addEventListener('change', applyFilterAndSort);
+
+    // Initial render
+    renderList(originalItems);
+
+    // Description truncation + "click for more" popup
+    function applyDescriptionTruncation() {
+      document.querySelectorAll('.product-desc').forEach(desc => {
+        const fullText = desc.getAttribute('data-full') || desc.textContent.trim();
+        // store full text in attribute so repeated truncation won't lose it
+        desc.setAttribute('data-full', fullText);
+        const maxLen = 120;
+        if (fullText.length > maxLen) {
+          const shortText = fullText.slice(0, maxLen) + '... ';
+          desc.innerHTML = ''; // clear
+          desc.appendChild(document.createTextNode(shortText));
+          const moreLink = document.createElement('span');
+          moreLink.textContent = 'click for more';
+          moreLink.classList.add('click-more');
+          moreLink.onclick = () => openPopup(desc.closest('.product').querySelector('.product-name').textContent, fullText);
+          desc.appendChild(moreLink);
+        } else {
+          desc.textContent = fullText;
+        }
+      });
+    }
+
+    // popup functions
+    window.openPopup = function(name, desc) {
+      document.getElementById('popup-title').textContent = name;
+      document.getElementById('popup-desc').textContent = desc;
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    window.closePopup = function() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    // redeem button function (same as before)
+    window.redeemProduct = function(name, credits) {
+      const email = "naziaputul.207@gmail.com";
+      const subject = `request to redeem ${name}`;
+      const body = `Greetings,%0D%0A%0D%0AI would like to redeem ${name} for ${credits}. Thank you.%0D%0A%0D%0AWarm regards,%0D%0AName : %0D%0ANumber : `;
+      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`, '_blank');
+    }
+
+    // ensure initial truncation applied
+    applyDescriptionTruncation();
   });
-
-  // Popup open and close
-  function openPopup(name, desc) {
-    document.getElementById('popup-title').textContent = name;
-    document.getElementById('popup-desc').textContent = desc;
-    document.getElementById('popup').style.display = 'flex';
-  }
-
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-  }
-
-  // Redeem button: open Gmail compose
-  function redeemProduct(name, credits) {
-    const email = "naziaputul.207@gmail.com";
-    const subject = `request to redeem ${name}`;
-    const body = `Greetings,%0D%0A%0D%0AI would like to redeem ${name} for ${credits}. Thank you.%0D%0A%0D%0AWarm regards,%0D%0AName : %0D%0ANumber : `;
-    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`, '_blank');
-  }
 </script>
 
 </body>
