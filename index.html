@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redeem Page</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f6f9d1;
+  }
+
+  .menu-bar {
+    background-color: #d3d3d3;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #f6f9d1;
+    padding: 0 30px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+
+  .product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #000;
+  }
+
+  .product img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+
+  .product-info {
+    flex: 1;
+  }
+
+  .product-name {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .product-desc {
+    font-size: 14px;
+    color: #333;
+    max-width: 500px;
+  }
+
+  .credits {
+    font-weight: bold;
+    margin-right: 20px;
+    white-space: nowrap;
+  }
+
+  .redeem-btn {
+    background-color: #5ec28a;
+    color: #000;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .redeem-btn:hover {
+    background-color: #4caf7a;
+  }
+
+  /* Popup styles */
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .popup-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .popup-content h2 {
+    margin-top: 0;
+  }
+
+  .close-btn {
+    margin-top: 20px;
+    background-color: #5ec28a;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .click-more {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="menu-bar">MENU BAR</div>
+
+<div class="container">
+  <h1>CHOOSE AN ITEM TO REDEEM WITH CREDITS</h1>
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/smart-watch/oraimo/watch-5-lite/watch-5-lite-official-228x228.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Oraimo Watch 5 Lite Smart Watch</div>
+      <div class="product-desc">
+        2.01" TFT HD 240x280p Display, HD Voice in Calls,
+AI-Generated Watch Faces,
+IP68 Dust & Water Resistance,
+105+ Sports Modes, 7 Days Battery Life
+      </div>
+    </div>
+    <div class="credits">37 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Oraimo Watch 5 Lite Smart Watch', '37 credits')">REDEEM NOW</button>
+  </div>
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/keyboard/t-wolf/t20/t20-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">T-Wolf T20 Wired RGB Gaming Keyboard</div>
+      <div class="product-desc">
+        Model: T20,
+Number Of Keys: 104,
+Backlit RGB,
+Switch Type: Membrane,
+Multi Keys: Anti-ghosting
+      </div>
+    </div>
+    <div class="credits">11 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('T-Wolf T20 Wired RGB Gaming Keyboard', '11 credits')">REDEEM NOW</button>
+  </div>
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/smart-watch/colmi/p81/p81-black-official-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Smart Watch P81</div>
+      <div class="product-desc">
+        Model: P81 
+1.9 inch HD Display,
+100+ Sports Modes,
+300mAh battery Capacity,
+Waterproof level: IP68,
+6 months warranty
+
+
+      </div>
+    </div> 
+    <div class="credits">29 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Headphone vmh20', '50 credits')">REDEEM NOW</button>
+  </div>
+
+<div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/headphone/hoco/esd15/esd15-black-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Hoco ESD15 Bluetooth Wireless Headphone</div>
+      <div class="product-desc">
+Model: ESD15,
+Bluetooth: 5.3 Chip: JLAC6925F,
+Battery capacity: 400mah,
+Charging about 2 hours,
+Talk/music: 12 hours
+      </div>
+    </div>
+    <div class="credits">34 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Hoco ESD15 Bluetooth Wireless Headphone', '34 credits')">REDEEM NOW</button>
+  </div>
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/appliance/charger-fan/fantech/pac1/pac1-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Fantech PAC1 Portable Air Conditioner</div>
+      <div class="product-desc">
+Model: PAC1,
+Ultra-High Speed for Strong Airflow,
+Max RPM: 10000 ± 10% RPM,
+Battery Life: Up to 2.5 Hours,
+3 adjustable speeds
+      </div>
+    </div>
+
+    <div class="credits">11 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Fantech PAC1 Portable Air Conditioner', '11 credits')">REDEEM NOW</button>
+  </div>
+
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/accessories/mousepad/sven-mp44-500x500.jpg" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Fantech Sven MP44 Gaming Mousepad</div>
+      <div class="product-desc">
+Model: Fantech Sven MP44,
+Quick and responsiveness to your mouse,
+Anti- slip Rubber Base,
+Built for maximum precision,
+Size: 44cm x 35cm x 4mm
+      </div>
+    </div>
+
+    <div class="credits">11 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Fantech Sven MP44 Gaming Mousepad', '11 credits')">REDEEM NOW</button>
+  </div>
+
+
+    <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
+      <div class="product-desc">
+MPN: HS-USB-M210S-64G-U3,
+Model: Pully HS-USB-M210S,
+Capacity: 64GB,
+Interface: USB 3.2,
+Performance: Up to 120 MB/s read,45MB/s Write,
+Connector Type: USB Type-A,
+      </div>
+    </div>
+
+    <div class="credits">13 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive', '13 credits')">REDEEM NOW</button>
+  </div>
+
+<div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
+      <div class="product-desc">
+MPN: HS-USB-M210S-64G-U3,
+Model: Pully HS-USB-M210S,
+Capacity: 64GB,
+Interface: USB 3.2,
+Performance: Up to 120 MB/s read,45MB/s Write,
+Connector Type: USB Type-A,
+      </div>
+    </div>
+
+    <div class="credits">13 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive', '13 credits')">REDEEM NOW</button>
+  </div>
+
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
+      <div class="product-desc">
+MPN: HS-USB-M210S-64G-U3,
+Model: Pully HS-USB-M210S,
+Capacity: 64GB,
+Interface: USB 3.2,
+Performance: Up to 120 MB/s read,45MB/s Write,
+Connector Type: USB Type-A,
+      </div>
+    </div>
+
+    <div class="credits">13 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive', '13 credits')">REDEEM NOW</button>
+  </div>
+
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
+      <div class="product-desc">
+MPN: HS-USB-M210S-64G-U3,
+Model: Pully HS-USB-M210S,
+Capacity: 64GB,
+Interface: USB 3.2,
+Performance: Up to 120 MB/s read,45MB/s Write,
+Connector Type: USB Type-A,
+      </div>
+    </div>
+
+    <div class="credits">13 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive', '13 credits')">REDEEM NOW</button>
+  </div>
+
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
+      <div class="product-desc">
+MPN: HS-USB-M210S-64G-U3,
+Model: Pully HS-USB-M210S,
+Capacity: 64GB,
+Interface: USB 3.2,
+Performance: Up to 120 MB/s read,45MB/s Write,
+Connector Type: USB Type-A,
+      </div>
+    </div>
+
+    <div class="credits">13 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive', '13 credits')">REDEEM NOW</button>
+  </div>
+
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
+      <div class="product-desc">
+MPN: HS-USB-M210S-64G-U3,
+Model: Pully HS-USB-M210S,
+Capacity: 64GB,
+Interface: USB 3.2,
+Performance: Up to 120 MB/s read,45MB/s Write,
+Connector Type: USB Type-A,
+      </div>
+    </div>
+
+    <div class="credits">13 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive', '13 credits')">REDEEM NOW</button>
+  </div>
+
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
+      <div class="product-desc">
+MPN: HS-USB-M210S-64G-U3,
+Model: Pully HS-USB-M210S,
+Capacity: 64GB,
+Interface: USB 3.2,
+Performance: Up to 120 MB/s read,45MB/s Write,
+Connector Type: USB Type-A,
+      </div>
+    </div>
+
+    <div class="credits">13 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive', '13 credits')">REDEEM NOW</button>
+  </div>
+
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
+      <div class="product-desc">
+MPN: HS-USB-M210S-64G-U3,
+Model: Pully HS-USB-M210S,
+Capacity: 64GB,
+Interface: USB 3.2,
+Performance: Up to 120 MB/s read,45MB/s Write,
+Connector Type: USB Type-A,
+      </div>
+    </div>
+
+    <div class="credits">13 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive', '13 credits')">REDEEM NOW</button>
+  </div>
+
+
+  <div class="product">
+    <img src="https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/pully-hs-usb-m210s/pully-hs-usb-m210s-01-500x500.webp" alt="Product">
+    <div class="product-info">
+      <div class="product-name">Hiksemi Pully HS USB M210S Pendrive</div>
+      <div class="product-desc">
+MPN: HS-USB-M210S-64G-U3,
+Model: Pully HS-USB-M210S,
+Capacity: 64GB,
+Interface: USB 3.2,
+Performance: Up to 120 MB/s read,45MB/s Write,
+Connector Type: USB Type-A,
+      </div>
+    </div>
+
+    <div class="credits">13 credits</div>
+    <button class="redeem-btn" 
+      onclick="redeemProduct('Hiksemi Pully HS USB M210S Pendrive', '13 credits')">REDEEM NOW</button>
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+<!-- Popup -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h2 id="popup-title"></h2>
+    <p id="popup-desc"></p>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<script>
+  // Limit description and add "click for more"
+  document.querySelectorAll('.product-desc').forEach(desc => {
+    const fullText = desc.textContent.trim();
+    if (fullText.length > 120) {
+      const shortText = fullText.slice(0, 120) + '... ';
+      const moreLink = document.createElement('span');
+      moreLink.textContent = 'click for more';
+      moreLink.classList.add('click-more');
+      moreLink.onclick = () => openPopup(desc.previousElementSibling.textContent, fullText);
+      desc.textContent = shortText;
+      desc.appendChild(moreLink);
+    }
+  });
+
+  // Popup open and close
+  function openPopup(name, desc) {
+    document.getElementById('popup-title').textContent = name;
+    document.getElementById('popup-desc').textContent = desc;
+    document.getElementById('popup').style.display = 'flex';
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+
+  // Redeem button: open Gmail compose
+  function redeemProduct(name, credits) {
+    const email = "naziaputul.207@gmail.com";
+    const subject = `request to redeem ${name}`;
+    const body = `Greetings,%0D%0A%0D%0AI would like to redeem ${name} for ${credits}. Thank you.%0D%0A%0D%0AWarm regards,%0D%0AName : %0D%0ANumber : `;
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`, '_blank');
+  }
+</script>
+
+</body>
+</html>
