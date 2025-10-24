@@ -20,9 +20,8 @@
     </select>
   </div>
 
-  <!-- product list will be populated dynamically -->
   <div id="productList">
-    <!-- Products will be loaded here via JavaScript -->
+    <div class="loading">Loading products...</div>
   </div>
 </div>
 
@@ -36,168 +35,143 @@
 </div>
 
 <script>
-// Global variable to store products
-let products = [];
-let originalItems = [];
-
-// Wait for DOM ready
-document.addEventListener('DOMContentLoaded', async () => {
-    await loadProductsFromJSON();
-    initializeApp();
-});
-
-// Load products from JSON file
-async function loadProductsFromJSON() {
+  // Load products from JSON file only
+  async function loadProducts() {
     try {
-        const response = await fetch('products.json');
-        const data = await response.json();
-        products = data.products;
+      const response = await fetch('products.json');
+      if (response.ok) {
+        const products = await response.json();
+        displayProducts(products);
+      } else {
+        throw new Error('products.json not found');
+      }
     } catch (error) {
-        console.error('Error loading products:', error);
-        // Fallback: you could add some default products here
-        products = [];
+      console.log('Error loading products:', error);
+      // Show error message if products.json is not found
+      const productList = document.getElementById('productList');
+      productList.innerHTML = '<div class="loading">No products found. Please make sure products.json exists.</div>';
     }
-}
+  }
 
-function initializeApp() {
+  // Display products on the page
+  function displayProducts(products) {
     const productList = document.getElementById('productList');
-    const searchInput = document.getElementById('searchInput');
-    const sortFilter = document.getElementById('sortFilter');
-
-    // Create product elements from JSON data
+    
+    if (products.length === 0) {
+      productList.innerHTML = '<div class="loading">No products available</div>';
+      return;
+    }
+    
+    productList.innerHTML = '';
+    
     products.forEach(product => {
-        const productElement = createProductElement(product);
-        productList.appendChild(productElement);
-    });
-
-    // Get all product elements after creation
-    originalItems = Array.from(productList.querySelectorAll('.product'));
-
-    // Helper to read numeric credits from an element
-    function readCredits(el) {
-        const txt = el.querySelector('.credits')?.textContent || '';
-        const n = parseInt(txt.replace(/[^\d]/g, ''), 10);
-        return Number.isNaN(n) ? 0 : n;
-    }
-
-    // Helper to read searchable text
-    function readSearchText(el) {
-        const name = el.querySelector('.product-name')?.textContent || '';
-        const desc = el.querySelector('.product-desc')?.textContent || '';
-        return (name + ' ' + desc).toLowerCase();
-    }
-
-    // Render a list of product elements and add/update index column
-    function renderList(list) {
-        productList.innerHTML = '';
-        list.forEach((el, i) => {
-            // ensure index element exists; if not, create
-            let idxEl = el.querySelector('.index');
-            if (!idxEl) {
-                idxEl = document.createElement('div');
-                idxEl.className = 'index';
-                // insert at the very start of the product row
-                el.insertBefore(idxEl, el.firstChild);
-            }
-            idxEl.textContent = (i + 1) ;
-            // reset any inline display changes and append
-            el.style.display = 'flex';
-            productList.appendChild(el);
-        });
-
-        // re-attach click-for-more behavior
-        applyDescriptionTruncation();
-    }
-
-    // Apply search + sort and render
-    function applyFilterAndSort() {
-        const q = searchInput.value.trim().toLowerCase();
-        const sortOrder = sortFilter.value; // '', 'low-high', 'high-low'
-
-        // filter
-        let filtered = originalItems.filter(el => {
-            // include element if it contains the search query in name/desc
-            return readSearchText(el).includes(q);
-        });
-
-        // sort if requested
-        if (sortOrder === 'low-high') {
-            filtered.sort((a, b) => readCredits(a) - readCredits(b));
-        } else if (sortOrder === 'high-low') {
-            filtered.sort((a, b) => readCredits(b) - readCredits(a));
-        }
-
-        renderList(filtered);
-    }
-
-    // Hook events
-    searchInput.addEventListener('input', applyFilterAndSort);
-    sortFilter.addEventListener('change', applyFilterAndSort);
-
-    // Initial render
-    renderList(originalItems);
-
-    // Description truncation + "click for more" popup
-    function applyDescriptionTruncation() {
-        document.querySelectorAll('.product-desc').forEach(desc => {
-            const fullText = desc.getAttribute('data-full') || desc.textContent.trim();
-            // store full text in attribute so repeated truncation won't lose it
-            desc.setAttribute('data-full', fullText);
-            const maxLen = 120;
-            if (fullText.length > maxLen) {
-                const shortText = fullText.slice(0, maxLen) + '... ';
-                desc.innerHTML = ''; // clear
-                desc.appendChild(document.createTextNode(shortText));
-                const moreLink = document.createElement('span');
-                moreLink.textContent = 'click for more';
-                moreLink.classList.add('click-more');
-                moreLink.onclick = () => openPopup(desc.closest('.product').querySelector('.product-name').textContent, fullText);
-                desc.appendChild(moreLink);
-            } else {
-                desc.textContent = fullText;
-            }
-        });
-    }
-
-    // Ensure initial truncation applied
-    applyDescriptionTruncation();
-}
-
-// Create product element from product data
-function createProductElement(product) {
-    const productDiv = document.createElement('div');
-    productDiv.className = 'product';
-    productDiv.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/500x500?text=Image+Not+Found'">
+      const productDiv = document.createElement('div');
+      productDiv.className = 'product';
+      productDiv.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
         <div class="product-info">
-            <div class="product-name">${product.name}</div>
-            <div class="product-desc">${product.description}</div>
+          <div class="product-name">${product.name}</div>
+          <div class="product-desc">${product.description}</div>
         </div>
         <div class="credits">${product.credits} credits</div>
         <button class="redeem-btn" onclick="redeemProduct('${product.name.replace(/'/g, "\\'")}', '${product.credits} credits')">REDEEM NOW</button>
-    `;
-    return productDiv;
-}
+      `;
+      productList.appendChild(productDiv);
+    });
+    
+    // Initialize filtering and description truncation
+    initializeFilters();
+    applyDescriptionTruncation();
+  }
 
-// popup functions
-function openPopup(name, desc) {
+  // Initialize search and filter functionality
+  function initializeFilters() {
+    const productList = document.getElementById('productList');
+    const searchInput = document.getElementById('searchInput');
+    const sortFilter = document.getElementById('sortFilter');
+    
+    const originalItems = Array.from(productList.querySelectorAll('.product'));
+
+    function readCredits(el) {
+      const txt = el.querySelector('.credits')?.textContent || '';
+      const n = parseInt(txt.replace(/[^\d]/g, ''), 10);
+      return Number.isNaN(n) ? 0 : n;
+    }
+
+    function readSearchText(el) {
+      const name = el.querySelector('.product-name')?.textContent || '';
+      const desc = el.querySelector('.product-desc')?.textContent || '';
+      return (name + ' ' + desc).toLowerCase();
+    }
+
+    function applyFilterAndSort() {
+      const q = searchInput.value.trim().toLowerCase();
+      const sortOrder = sortFilter.value;
+
+      let filtered = originalItems.filter(el => {
+        return readSearchText(el).includes(q);
+      });
+
+      if (sortOrder === 'low-high') {
+        filtered.sort((a, b) => readCredits(a) - readCredits(b));
+      } else if (sortOrder === 'high-low') {
+        filtered.sort((a, b) => readCredits(b) - readCredits(a));
+      }
+
+      productList.innerHTML = '';
+      filtered.forEach(el => {
+        productList.appendChild(el);
+      });
+      
+      applyDescriptionTruncation();
+    }
+
+    searchInput.addEventListener('input', applyFilterAndSort);
+    sortFilter.addEventListener('change', applyFilterAndSort);
+  }
+
+  // Description truncation + "click for more" popup
+  function applyDescriptionTruncation() {
+    document.querySelectorAll('.product-desc').forEach(desc => {
+      const fullText = desc.getAttribute('data-full') || desc.textContent.trim();
+      desc.setAttribute('data-full', fullText);
+      const maxLen = 120;
+      if (fullText.length > maxLen) {
+        const shortText = fullText.slice(0, maxLen) + '... ';
+        desc.innerHTML = '';
+        desc.appendChild(document.createTextNode(shortText));
+        const moreLink = document.createElement('span');
+        moreLink.textContent = 'click for more';
+        moreLink.classList.add('click-more');
+        moreLink.onclick = () => openPopup(desc.closest('.product').querySelector('.product-name').textContent, fullText);
+        desc.appendChild(moreLink);
+      } else {
+        desc.textContent = fullText;
+      }
+    });
+  }
+
+  // Popup functions
+  function openPopup(name, desc) {
     document.getElementById('popup-title').textContent = name;
     document.getElementById('popup-desc').textContent = desc;
     document.getElementById('popup').style.display = 'flex';
-}
+  }
 
-function closePopup() {
+  function closePopup() {
     document.getElementById('popup').style.display = 'none';
-}
+  }
 
-// redeem button function
-function redeemProduct(name, credits) {
+  // Redeem button function
+  function redeemProduct(name, credits) {
     const email = "naziaputul.207@gmail.com";
     const subject = `request to redeem ${name}`;
     const body = `Greetings,%0D%0A%0D%0AI would like to redeem ${name} for ${credits}. Thank you.%0D%0A%0D%0AWarm regards,%0D%0AName : %0D%0ANumber : `;
     window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`, '_blank');
-}
-</script>
+  }
 
+  // Initialize when page loads
+  document.addEventListener('DOMContentLoaded', loadProducts);
+</script>
 </body>
 </html>

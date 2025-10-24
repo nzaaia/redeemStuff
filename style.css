@@ -65,11 +65,12 @@
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
+    box-shadow: #3f684f 0px 3px 0px 0px;
   }
 
   .product:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
   }
 
   .product img {
@@ -101,16 +102,17 @@
 
   .credits {
     padding: 10px 15px;
-    background-color: #e8f4fd;
-    color: #2980b9;
+    background-color: #e3f4d8;
+    color: #2957A5;
     font-weight: 600;
     font-size: 18px;
     text-align: center;
-    border-top: 1px solid #e1e8ed;
+    border-top: 1px solid #eee;
+  
   }
 
   .redeem-btn {
-    background-color: #3498db;
+    background-color: #26a737;
     color: white;
     border: none;
     padding: 12px;
@@ -118,10 +120,11 @@
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s;
+  
   }
 
   .redeem-btn:hover {
-    background-color: #2980b9;
+    background-color: #8bcd34;
   }
 
   .click-more {
@@ -173,7 +176,7 @@
   }
 
   .close-btn {
-    background-color: #e74c3c;
+    background-color: #2655A7;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -184,7 +187,7 @@
   }
 
   .close-btn:hover {
-    background-color: #c0392b;
+    background-color: #396ecb;
   }
 
   .loading {
