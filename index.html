@@ -9,14 +9,14 @@
 <body>
 
 <div class="container">
-  <h1>CHOOSE AN ITEM TO REDEEM WITH CREDITS</h1>
+  <h1>CHOOSE AN ITEM TO REDEEM WITH POINTS</h1>
 
   <div class="search-filter">
     <input id="searchInput" type="text" placeholder="Search by name or description..." />
     <select id="sortFilter" style="border: 2px solid #ddd; ">
       <option value="">Sort by</option>
-      <option value="low-high">Credits: Low to High</option>
-      <option value="high-low">Credits: High to Low</option>
+      <option value="low-high">Points: Low to High</option>
+      <option value="high-low">Points: High to Low</option>
     </select>
   </div>
 
@@ -73,8 +73,8 @@
           <div class="product-name">${product.name}</div>
           <div class="product-desc">${product.description}</div>
         </div>
-        <div class="credits">${product.credits} credits</div>
-        <button class="redeem-btn" onclick="redeemProduct('${product.name.replace(/'/g, "\\'")}', '${product.credits} credits')">REDEEM NOW</button>
+        <div class="credits">${product.points} points</div>
+        <button class="redeem-btn" onclick="redeemProduct('${product.name.replace(/'/g, "\\'")}', '${product.points} points')">REDEEM NOW</button>
       `;
       productList.appendChild(productDiv);
     });
@@ -92,8 +92,8 @@
     
     const originalItems = Array.from(productList.querySelectorAll('.product'));
 
-    function readCredits(el) {
-      const txt = el.querySelector('.credits')?.textContent || '';
+    function readpoints(el) {
+      const txt = el.querySelector('.points')?.textContent || '';
       const n = parseInt(txt.replace(/[^\d]/g, ''), 10);
       return Number.isNaN(n) ? 0 : n;
     }
@@ -113,9 +113,9 @@
       });
 
       if (sortOrder === 'low-high') {
-        filtered.sort((a, b) => readCredits(a) - readCredits(b));
+        filtered.sort((a, b) => readpoints(a) - readpoints(b));
       } else if (sortOrder === 'high-low') {
-        filtered.sort((a, b) => readCredits(b) - readCredits(a));
+        filtered.sort((a, b) => readpoints(b) - readpoints(a));
       }
 
       productList.innerHTML = '';
@@ -164,18 +164,18 @@
 
   
  // Redeem button function
-function redeemProduct(name, credits) {
+function redeemProduct(name, points) {
   // Replace these entry IDs with your actual form’s entry IDs
   const productEntry = "entry.208538347"; // Product Name field
-  const creditsEntry = "entry.704775185"; // Credits field
+  const pointsEntry = "entry.704775185"; // points field
 
   // Your Google Form base URL (from pre-filled link)
   const baseURL = "https://docs.google.com/forms/d/e/1FAIpQLSe3NbhPL-AN69QPShj0J7FksiZLABLKlmn8US_qWaJRy_RFYw/viewform?usp=pp_url";
 
-  // Encode the product name and credits for URL safety
+  // Encode the product name and points for URL safety
   const params = new URLSearchParams();
   params.append(productEntry, name);
-  params.append(creditsEntry, credits);
+  params.append(pointsEntry, points);
 
   // Open the Google Form in a new tab with pre-filled values
   window.open(`${baseURL}&${params.toString()}`, '_blank');
