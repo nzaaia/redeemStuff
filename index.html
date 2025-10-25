@@ -35,7 +35,7 @@
 </div>
 
 <script>
-  // Load products from JSON file only
+  // Load products from JSON 
   async function loadProducts() {
     try {
       const response = await fetch('products.json');
@@ -47,13 +47,13 @@
       }
     } catch (error) {
       console.log('Error loading products:', error);
-      // Show error message if products.json is not found
+     
       const productList = document.getElementById('productList');
       productList.innerHTML = '<div class="loading">No products found. Please make sure products.json exists.</div>';
     }
   }
 
-  // Display products on the page
+  // Display products
   function displayProducts(products) {
     const productList = document.getElementById('productList');
     
@@ -79,7 +79,7 @@
       productList.appendChild(productDiv);
     });
     
-    // Initialize filtering and description truncation
+  
     initializeFilters();
     applyDescriptionTruncation();
   }
@@ -130,7 +130,7 @@
     sortFilter.addEventListener('change', applyFilterAndSort);
   }
 
-  // Description truncation + "click for more" popup
+  // "click for more" popup
   function applyDescriptionTruncation() {
     document.querySelectorAll('.product-desc').forEach(desc => {
       const fullText = desc.getAttribute('data-full') || desc.textContent.trim();
@@ -162,7 +162,7 @@
     document.getElementById('popup').style.display = 'none';
   }
 
-  // Redeem button function
+  
  // Redeem button function
 function redeemProduct(name, credits) {
   // Replace these entry IDs with your actual form’s entry IDs
