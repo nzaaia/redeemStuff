@@ -163,12 +163,24 @@
   }
 
   // Redeem button function
-  function redeemProduct(name, credits) {
-    const email = "naziaputul.207@gmail.com";
-    const subject = `request to redeem ${name}`;
-    const body = `Greetings,%0D%0A%0D%0AI would like to redeem ${name} for ${credits}. Thank you.%0D%0A%0D%0AWarm regards,%0D%0AName : %0D%0ANumber : `;
-    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`, '_blank');
-  }
+ // Redeem button function
+function redeemProduct(name, credits) {
+  // Replace these entry IDs with your actual form’s entry IDs
+  const productEntry = "entry.208538347"; // Product Name field
+  const creditsEntry = "entry.704775185"; // Credits field
+
+  // Your Google Form base URL (from pre-filled link)
+  const baseURL = "https://docs.google.com/forms/d/e/1FAIpQLSe3NbhPL-AN69QPShj0J7FksiZLABLKlmn8US_qWaJRy_RFYw/viewform?usp=pp_url";
+
+  // Encode the product name and credits for URL safety
+  const params = new URLSearchParams();
+  params.append(productEntry, name);
+  params.append(creditsEntry, credits);
+
+  // Open the Google Form in a new tab with pre-filled values
+  window.open(`${baseURL}&${params.toString()}`, '_blank');
+}
+
 
   // Initialize when page loads
   document.addEventListener('DOMContentLoaded', loadProducts);

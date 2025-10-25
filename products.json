@@ -2,7 +2,7 @@
   { "index": 1 ,
     "name": "Havit HV-MS753 Optical Mouse",
     "description": "Model: Havit HV-MS753, Hand Orientation: Both Hands, Mouse 1000 dpi, Interface Type: USB, Tracking Method: Optical",
-    "credits": 6,
+    "credits": 30,
     "image": "https://www.startech.com.bd/image/cache/catalog/mouse/havit/ms753/ms753-1-500x500.jpg"
   },
    
@@ -10,70 +10,70 @@
     "index": 10,
     "name": "Panda Silicone Night Lamp",
     "description": "Light color: monochrome, Lampshade material: plastic, Switch type: push button",
-    "credits": 4,
+    "credits": 20,
     "image": "https://img.drz.lazcdn.com/g/kf/Scea80b00ca904889aae7c9048f92b50fG.jpg_400x400q75.avif"
 },
   {
     "index": 3,
     "name": "Havit HV-MP861 Gaming Mousepad",
     "description": "Model: HV-MP861, Premium fine-mesh cloth surface, Anti-slip rubber base, Edge covering design, Size: 700 x 300 x 3mm",
-    "credits": 9,
+    "credits": 45,
     "image": "https://www.startech.com.bd/image/cache/catalog/mouse-pad/havit/hv-mp861/hv-mp861-04-500x500.jpg"
   },
   {
     "index": 4,
     "name": "Smart X4 Premier SM12 32GB USB 3.1 Pen Drive",
     "description": "MPN: SM12-032-01, Model: X4 Premier SM12, Capacity: 32GB, Interface: USB 3.1, Sequential Read Speed: Upto 100 Mbps, Sequential Write Speed: Upto 80 Mbps",
-    "credits": 10,
+    "credits": 50,
     "image": "https://www.startech.com.bd/image/cache/catalog/pendrive/smart/x4-premier-sm12/x4-premier-sm12-32gb-01-500x500.webp"
   },
   { "index": 5,
     "name": "Apacer R100 MicroSDHC/SDXC UHS-1 U1 V10 A1 32GB Memory Card with Adapter",
     "description": "MPN: AP32GMCSH10UB-R, Model: R100, Capacity: 32GB, UHS Video Speed: Class 10, Read speed: Maximum 100MB/s, Compliance: Meets SD specification version 5.1",
-    "credits": 10,
+    "credits": 50,
     "image": "https://www.startech.com.bd/image/cache/catalog/memory-card/apacer/r100/r100-500x500.webp"
   }, 
   {
     "index": 13,
     "name": "Electric Hot Water Bag ",
     "description": "Approx. 11″ x 7″ x 2″,Color : Red, brown, gray, pink,  Long-lasting heat gel, Automatic heat control",
-    "credits": 5,
+    "credits": 25,
     "image": "https://img.drz.lazcdn.com/static/bd/p/735474414087f52f7d827638b0db537c.jpg_400x400q75.avif"
 },
   { "index": 6,
     "name": "Riversong EA207 Spirit L1 Wired Earphone",
     "description": "Model: EA207 Spirit L1, Cable Length: 1.2, Impedance: 32Ω, Connector: 3.5mm Jack, True Stereo Sound",
-    "credits": 4,
+    "credits": 20,
     "image": "https://www.startech.com.bd/image/cache/catalog/earphone/riversong/ea207/ea207-500x500.webp"
   },
   { "index": 7,
     "name": "Havit HV-MP839 Gaming Mouse Pad",
     "description": "Model: Havit HV-MP839, Size: 250x210x2mm, Anti-slip rubber base, Ergonomic Design, Material: rubber bottom + cloth",
-    "credits": 3,
+    "credits": 15,
     "image": "https://www.startech.com.bd/image/cache/catalog/accessories/mousepad/havit-hv-mp839-500x500.jpg"
   },
   {"index": 9,
     "name": "YAGE lamp YG-T125",
     "description": "Model:YG-T125, \nColor:white,sky blue,pink.\nLight: warm white.\nRated capacity of the Battery :1200mAh.\nOperating temperature :10°c_45°c.\nAmbient of air humidity :<90%.\nCharging voltage:DC5v/500mAh.\nDC rated charging current:DC0.5A.\nLight source of power: 2W.\nLight source: LED.\nLight source brightness :luminous flux_>180lm.\nSwitch: 1-2-3.\n",
-    "credits": 6,
+    "credits": 30,
     "image": "https://img.drz.lazcdn.com/g/kf/Sbaaec1982c1b480bb250cb0e4ba802d5f.jpg_400x400q75.avif"
   },
   {"index": 8,
     "name": "Hiksemi Cap HS-USB-M220P 32GB USB 3.2 Pen Drive",
     "description": "MPN: HS-USB-M220P-32G-U3, Model: Cap HS-USB-M220P, Capacity: 32GB, Interface: USB 3.2, Performance: Up to 120 MB/s read,45MB/s Write, Connector Type: USB Type-A",
-    "credits": 9,
+    "credits": 45,
     "image": "https://www.startech.com.bd/image/cache/catalog/pendrive/hiksemi/cap-hs-usb-m220p/cap-hs-usb-m220p-01-500x500.webp"
   } ,
   {"index": 9,
     "name": "P47 - Wireless Bluetooth Headphone",
     "description": "Model: RM-512, Features: HD Microphone / Compatibility / Volume Control, Material: TPE, Impedance: 32Ω, Frequency: 20-20k Hz, HBQ I7S Double Dual Mini Wireless 4.1 Bluetooth Earphone With Power Case: Drive: 15mm No Cable Sent Impedance: 32 OHM Bluetooth version: Bluetooth v4.1+ED Bluetooth frequency: 2.4GHz Power level: CLASS II, output power: 30mW Bluetooth Distance: obstacle free 10 meter Frequency response: 20-20000Hz Working voltage range: 3.0V-4.2V",
-    "credits": 7,
+    "credits": 35,
     "image": "https://img.drz.lazcdn.com/static/bd/p/8ec781782c2397ee7c569b276cda36fb.jpg_400x400q80.jpg_.avif"
   },
    {"index": 8,
     "name": "K8 Type-C Wireless Microphone",
     "description": "Frequency: 2.4GHz, Input voltage: DC4.8-5.4V, Charging port: Type-C, Battery capacity: 80mAh, Transmission Distance: up to 10 meters, Microphone size: 62*23 * 28mm, Microphone weight: 7g, Receiver size: 45*27 * 7mm, Receiver weight: 4g",
-    "credits": 6,
+    "credits": 30,
     "image": "https://img.drz.lazcdn.com/static/bd/p/af84c7cd5f10aad7e76d447294f45202.jpg_400x400q80.jpg_.avif"
   },
 
@@ -81,14 +81,14 @@
     "index": 11,
     "name": "Black Spiral Compress Notebook",
     "description": "Innards: 110 gsm uncoated cartridge paper,Bound: ring wire binding, Size: W- 5.0 in x H- 6.9 in, Page: 45 leaves, 90 pages.",
-    "credits": 3,
+    "credits": 15,
     "image": "https://img.drz.lazcdn.com/g/kf/S10cb9e6bca234c90960d8ab77eded7072.jpg_400x400q75.avif"
 },
 {
     "index": 12,
     "name": "Strong Grip Silicone Phone Holder",
     "description": "Material: Silicone, Color: Pink, Green, black, blue, white and brown, Size: 5.5 * 8 * 0.3cm, The diameter of a single sucker is 10mm and the height is 2mm",
-    "credits": 2,
+    "credits": 10,
     "image": "https://img.drz.lazcdn.com/static/bd/p/86478481ed75d0f7d74fe24733eaa372.jpg_400x400q75.avif"
 },
 
@@ -96,13 +96,13 @@
     "index": 14,
     "name": "Printed Canvas Tote Bag With Zipper ",
     "description": "Material: High-Quality Durable Canvas Fabric, Size: Width - 14 inch | Height - 16 inch, Top Handle Height: 10 inch",
-    "credits": 3,
+    "credits": 15,
     "image": "https://img.drz.lazcdn.com/g/kf/S5100fcec0cab4899b63cd960d23b99f0E.jpg_400x400q75.avif"
 }, {
     "index": 2,
     "name": "T-WOLF V12 Wired Mouse",
     "description": "Model: V12, Buttons: 3 keys, Connectivity: USB Wired Mouse, Resolution: 1000 DPI, Plug-and-play Design",
-    "credits": 6,
+    "credits": 30,
     "image": "https://www.startech.com.bd/image/cache/catalog/mouse/t-wolf/v12/v12-01-500x500.webp"
   }
     
